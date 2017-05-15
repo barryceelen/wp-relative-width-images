@@ -19,7 +19,7 @@ tinymce.PluginManager.add( 'relative_width_images', function( editor ) {
 
 		wp.media.events.on( 'editor:image-update', function( data ) {
 			data.editor.$( data.image ).attr( { 'data-rwi': getPercentage( data.image.attributes.width.value ) } );
-		} );
+		});
 	}
 
 	/**
@@ -27,7 +27,7 @@ tinymce.PluginManager.add( 'relative_width_images', function( editor ) {
 	 *
 	 * Note: Rounding will occur as we only provide css for integers.
 	 *
-	 * @since 1.0.1
+	 * @since 1.0.0
 	 * @param {int} width Width of the image.
 	 * @return {int} Percentage value.
 	 */
