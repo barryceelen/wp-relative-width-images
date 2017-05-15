@@ -10,12 +10,29 @@ tinymce.PluginManager.add( 'relative_width_images', function( editor ) {
 	editor.on( 'ObjectResized', function( event ) {
 
 		if ( event.target.nodeName === 'IMG' ) {
-
-			var editorWidth   = tinymce.activeEditor.dom.doc.body.clientWidth;
-			var selectedImage = tinymce.activeEditor.selection.getNode();
-			var imageWidth    = Math.min( Math.max( parseInt( ( event.width / editorWidth ) * 100, 10 ), 1 ), 100 );
-
-			tinymce.activeEditor.dom.setAttrib( selectedImage, 'data-rwi', imageWidth );
+			tinymce.activeEditor.dom.setAttrib( tinymce.activeEditor.selection.getNode(), 'data-rwi', getPercentage( event.width ) );
 		}
 	});
+
+	// After editing an image in the media view update the 'data-rwi' attribute.
+	if ( wp.media.events ) {
+
+		wp.media.events.on( 'editor:image-update', function( data ) {
+			data.editor.$( data.image ).attr( { 'data-rwi': getPercentage( data.image.attributes.width.value ) } );
+		} );
+	}
+
+	/**
+	 * Get percentage value based on the width of the editor body.
+	 *
+	 * Note: Rounding will occur as we only provide css for integers.
+	 *
+	 * @since 1.0.1
+	 * @param {int} width Width of the image.
+	 * @return {int} Percentage value.
+	 */
+	function getPercentage( width ) {
+
+		return Math.min( Math.max( parseInt( ( width / tinymce.activeEditor.dom.doc.body.clientWidth ) * 100, 10 ), 1 ), 100 );
+	}
 });
