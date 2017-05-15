@@ -11,7 +11,7 @@ tinymce.PluginManager.add( 'relative_width_images', function( editor ) {
 
 		if ( event.target.nodeName === 'IMG' ) {
 
-			var editorWidth   = tinymce.activeEditor.editorContainer.clientWidth;
+			var editorWidth   = tinymce.activeEditor.dom.doc.body.clientWidth;
 			var selectedImage = tinymce.activeEditor.selection.getNode();
 			var imageWidth    = Math.min( Math.max( parseInt( ( event.width / editorWidth ) * 100, 10 ), 1 ), 100 );
 
