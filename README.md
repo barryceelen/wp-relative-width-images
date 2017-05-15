@@ -10,18 +10,18 @@ A stylesheet is enqueued containing selectors that 'translate' the data attribut
 [data-rwi="50"] { width: 50% }
 ```
 
-By default the stylesheet is only enqueued if `is_singular()` returns `true`.
+By default the stylesheet is only enqueued if `is_singular()` returns `true`.   
 The `relative_width_images_enqueue_styles` filter can be used to change this behaviour.
 
 ```
-	add_filter( 'relative_width_images_enqueue_styles', 'prefix_my_cool_filter' );
+add_filter( 'relative_width_images_enqueue_styles', 'prefix_my_cool_filter' );
 
-	function prefix_my_cool_filter( enqueue_styles ) {
+function prefix_my_cool_filter( enqueue_styles ) {
 
-		if ( is_singular() || is_archive() ) {
-			$enqueue_styles = true;
-		}
-
-		return $enqueue_styles;
+	if ( is_singular() || is_archive() ) {
+		$enqueue_styles = true;
 	}
+
+	return $enqueue_styles;
+}
 ```
