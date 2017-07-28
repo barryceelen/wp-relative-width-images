@@ -10,7 +10,7 @@
  *
  * Plugin Name: Relative Width Images
  * Description: Make image widths percentage-based in the TinyMCE editor.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      Barry Ceelen
  * Author URI:  https://github.com/barryceelen
  * Text Domain: relative-width-images
