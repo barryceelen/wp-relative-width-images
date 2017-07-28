@@ -18,7 +18,7 @@ The `relative_width_images_enqueue_styles` filter can be used to change this beh
 ```
 add_filter( 'relative_width_images_enqueue_styles', 'prefix_my_cool_filter' );
 
-function prefix_my_cool_filter( enqueue_styles ) {
+function prefix_my_cool_filter( $enqueue_styles ) {
 
 	if ( is_singular() || is_archive() ) {
 		$enqueue_styles = true;
