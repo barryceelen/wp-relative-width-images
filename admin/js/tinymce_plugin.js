@@ -1,4 +1,12 @@
-/*global tinymce*/
+/**
+ * TinyMCE plugin which adds a size class when resizing an image.
+ *
+ * @since 1.0.0
+ * @package Relative_Width_Images
+ */
+
+/* global tinymce */
+
 tinymce.PluginManager.add( 'relative_width_images', function( editor ) {
 
 	/*
