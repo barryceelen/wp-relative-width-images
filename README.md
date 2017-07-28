@@ -27,3 +27,16 @@ function prefix_my_cool_filter( $enqueue_styles ) {
 	return $enqueue_styles;
 }
 ```
+
+On narrow screens you might want to make the relatively sized images 100% wide.
+You could specify one or more breakpoints in your css file, setting widths for the `[data-rwi]` selector.
+For convenience, when using a single breakpoint the `relative_width_images_breakpoint` is available where you can define a max_width value:
+
+```
+add_filter( 'relative_width_images_breakpoint', 'prefix_my_cool_max_width_filter' );
+
+function prefix_my_cool_max_width_filter( $breakpoint ) {
+
+	return '620px'; // This is an arbitrary number, use your own.
+}
+```
