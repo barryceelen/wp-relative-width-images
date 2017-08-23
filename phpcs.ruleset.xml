@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Default Admin Color Scheme">
+<ruleset name="Relative Width Images">
 	<description>A custom set of HP_CodeSniffer rules for the Relative Width Images WordPress plugin</description>
 	<rule ref="WordPress-Extra">
 		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
